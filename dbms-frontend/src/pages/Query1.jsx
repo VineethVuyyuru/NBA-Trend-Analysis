@@ -91,7 +91,7 @@ function Query1(){
                 <div className="flex-none">
                     {selectedResult && (
                         <div>
-                        <p className="block mb-2 text-sm font-medium text-black-900 text-center">Selected Name: {selectedResult.name}</p>
+                        <p className="block mb-2 text-sm font-medium text-black-900 text-center">Selected Player: {selectedResult.name}</p>
                         </div>
                     )}
                     <br/>
