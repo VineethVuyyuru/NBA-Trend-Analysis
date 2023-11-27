@@ -5,6 +5,7 @@ import Query1 from './pages/Query1'
 import './App.css'
 import Query2 from './pages/Query2'
 
+
 const router = createBrowserRouter([
   {path :'/', element: <HomePage/>},
   {path :'/query1', element: <Query1/>},

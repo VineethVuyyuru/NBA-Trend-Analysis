@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
-import Header from './Header'
 import Query1Graph from './Query1Graph';
+import { Container } from 'react-bootstrap';
+import Header from './Header'
+
 
 function Query1(){
     const [inputValue, setInputValue] = useState('');
@@ -20,14 +21,14 @@ function Query1(){
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-        };
-
+        }; 
        
         if (inputValue.trim() !== '') {
         fetchData();
         } else {
         setResults([]); 
         }
+
     }, [inputValue]); 
 
     const handleResultClick = async (result) => {
@@ -39,18 +40,23 @@ function Query1(){
             const playerDetailsApiUrl = `http://localhost:8080/query3/${result.name}`;
             const response = await fetch(playerDetailsApiUrl);
             const playerData = await response.json();
-            console.log(playerData)
+           
             setPlayerDetails(playerData);
+            console.log(playerDetails)
             
         } catch (error) {
           console.error('Error fetching player details:', error);
         }
+
+        
+
       };
 
 
     return (
-        <>
+        <div>
         <Header/>
+        <Container>
         <div>
             <input
                 type="text"
@@ -77,12 +83,15 @@ function Query1(){
                 </div>
             )}
       
-        <div>
+        
             {playerDetails && playerDetails.length>0 && (
-                <Query1Graph data={playerDetails}/>
+                <Query1Graph 
+                data = {playerDetails}
+                />
             )}
+            
+        </Container>
         </div>
-        </>
     );
 }
 
