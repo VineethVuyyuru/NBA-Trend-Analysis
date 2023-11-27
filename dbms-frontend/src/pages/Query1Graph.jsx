@@ -41,14 +41,12 @@ const Query1Graph = ({data}) => {
     };
 
     const options = {
-        maintainAspectRatio: false,
+        maintainAspectRatio: false
     };
 
     return (
-        <div className="position: relative; height:80vh; width:80vw">
-            <div className=" border: 1px dotted red">
-            <Chart type = "line" data = {data1} options={options}/>
-            </div>
+        <div style={{position: 'relative', height: '80vh', width: '80vw'}}>
+          <Chart type = "line" data = {data1} options={options}/>
         </div>
     )
     

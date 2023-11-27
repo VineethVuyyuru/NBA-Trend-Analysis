@@ -54,7 +54,7 @@ function Query1(){
 
 
     return (
-        <>
+        <div>
         <Header/>
         <Container>
         <div>
@@ -91,7 +91,7 @@ function Query1(){
             )}
             
         </Container>
-        </>
+        </div>
     );
 }
 
