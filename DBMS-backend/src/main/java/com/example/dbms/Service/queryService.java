@@ -1,14 +1,10 @@
 package com.example.dbms.Service;
 import java.util.List;
+
+import com.example.dbms.POJO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.dbms.Repository.queryRepository;
-import com.example.dbms.POJO.Players;
-import com.example.dbms.POJO.PlayerPoints;
-import com.example.dbms.POJO.eFGMetric;
-import com.example.dbms.POJO.PerfCompare;
-import com.example.dbms.POJO.PointsAgainst;
-import com.example.dbms.POJO.PlayerSal;
 
 @Service
 public class queryService {
@@ -25,6 +21,9 @@ public class queryService {
         return repo.getPlayersOnSearch(name);
     }
 
+    public List<Team> getTeams(){
+        return repo.getTeams();
+    }
     public List<PlayerSal> query1(String name){
         return repo.query1(name);
     }

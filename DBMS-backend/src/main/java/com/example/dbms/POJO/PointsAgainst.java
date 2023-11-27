@@ -1,11 +1,8 @@
 package com.example.dbms.POJO;
 
-import org.springframework.stereotype.Repository;
-
-@Repository
 public class PointsAgainst {
-    private String team;
     private Integer season;
+    private String team;
     private Integer points;
 
     public PointsAgainst() {
