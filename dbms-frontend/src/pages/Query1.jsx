@@ -37,7 +37,7 @@ function Query1(){
             setResults([]);
             setInputValue('');
             // Example: Assuming there's an API endpoint for player details
-            const playerDetailsApiUrl = `http://localhost:8080/query1/${result.name}`;
+            const playerDetailsApiUrl = `http://localhost:8080/query3/${result.name}`;
             const response = await fetch(playerDetailsApiUrl);
             const playerData = await response.json();
            
