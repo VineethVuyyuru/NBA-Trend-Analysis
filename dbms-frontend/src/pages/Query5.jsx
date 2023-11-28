@@ -14,6 +14,8 @@ function Query5(){
     const [teams, setTeams] = useState([]);
     const [selectedResult1, setSelectedResult1] = useState(null);
     const [selectedResult2, setSelectedResult2] = useState(null);
+    const [selectedResultFull1, setSelectedResultFull1] = useState(null);
+    const [selectedResultFull2, setSelectedResultFull2] = useState(null);
     const [grpahData, setGraphData] = useState([]);
 
     useEffect(() => {
@@ -25,8 +27,10 @@ function Query5(){
             const data = await response.json();
             console.log(data)
             setTeams(data); 
-            setSelectedResult1(data[0].teamName)
-            setSelectedResult2(data[0].teamName)
+            setSelectedResult1(data[0].name)
+            setSelectedResult2(data[0].name)
+            setSelectedResultFull1(data[0].fullName)
+            setSelectedResultFull2(data[0].fullName)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -38,7 +42,6 @@ function Query5(){
 
     const handleResultClick = async () => {
         try {
-
             // Example: Assuming there's an API endpoint for player details
             const playerDetailsApiUrl = `http://localhost:8080/query5/${selectedResult1}/${selectedResult2}`;
             const response = await fetch(playerDetailsApiUrl);
@@ -56,6 +59,20 @@ function Query5(){
 
       };
 
+    const clickHandler1=(value)=>{
+        setSelectedResultFull1(value)
+        const t = teams.find(team => team.fullName === value);
+        let selectedTeam = t ? t.name : null;
+        setSelectedResult1(selectedTeam)
+    }
+
+    const clickHandler2=(value)=>{
+        setSelectedResultFull2(value)
+        const t = teams.find(team => team.fullName === value);
+        let selectedTeam = t ? t.name : null;
+        setSelectedResult2(selectedTeam)
+    }
+
 
     return (
         <div className="">
@@ -63,13 +80,13 @@ function Query5(){
             <br/>
             <div className="flex">
                 <div className="w-1/4 ml-10 mr-5 pr-5 border-r">
-                    <Listbox value={selectedResult1} onChange={setSelectedResult1}>
+                    <Listbox value={selectedResultFull1} onChange={clickHandler1}>
                     {({ open }) => (
                         <>
                         <Listbox.Label className="block text-sm font-medium text-gray-700">Select Team 1</Listbox.Label>
                         <div className="mt-1 relative">
                             <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <span className="block">{selectedResult1}</span>
+                            <span className="block">{selectedResultFull1}</span>
                             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                 <SelectorIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </span>
@@ -92,15 +109,15 @@ function Query5(){
                                         'cursor-default select-none relative py-2 pl-3 pr-9'
                                     )
                                     }
-                                    value={team.teamName}
+                                    value={team.fullName}
                                 >
-                                    {({ selectedResult1, active }) => (
+                                    {({ selected, active }) => (
                                     <>
-                                        <span className={classNames(selectedResult1 ? 'font-semibold' : 'font-normal', 'block truncate')}>
-                                        {team.teamName}
+                                        <span className={classNames(selected ? 'font-semibold' : 'font-normal', 'block truncate')}>
+                                        {team.fullName}
                                         </span>
 
-                                        {selectedResult1 ? (
+                                        {selected ? (
                                         <span
                                             className={classNames(
                                             active ? 'text-white' : 'text-indigo-600',
@@ -124,13 +141,13 @@ function Query5(){
                     <br/>
                     <br/>
 
-                    <Listbox value={selectedResult2} onChange={setSelectedResult2}>
+                    <Listbox value={selectedResultFull2} onChange={clickHandler2}>
                     {({ open }) => (
                         <>
                         <Listbox.Label className="block text-sm font-medium text-gray-700">Select Team 2</Listbox.Label>
                         <div className="mt-1 relative">
                             <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <span className="block">{selectedResult2}</span>
+                            <span className="block">{selectedResultFull2}</span>
                             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                 <SelectorIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </span>
@@ -153,15 +170,15 @@ function Query5(){
                                         'cursor-default select-none relative py-2 pl-3 pr-9'
                                     )
                                     }
-                                    value={team.teamName}
+                                    value={team.fullName}
                                 >
-                                    {({ selectedResult2, active }) => (
+                                    {({ selected, active }) => (
                                     <>
-                                        <span className={classNames(selectedResult2 ? 'font-semibold' : 'font-normal', 'block truncate')}>
-                                        {team.teamName}
+                                        <span className={classNames(selected ? 'font-semibold' : 'font-normal', 'block truncate')}>
+                                        {team.fullName}
                                         </span>
 
-                                        {selectedResult2 ? (
+                                        {selected ? (
                                         <span
                                             className={classNames(
                                             active ? 'text-white' : 'text-indigo-600',
