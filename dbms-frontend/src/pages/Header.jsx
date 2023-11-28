@@ -4,7 +4,10 @@ function Header(){
     let Links =[
         {name:"HOME",link:"/"},
         {name:"Query 1",link:"/query1"},
-        {name:"Query 2",link:"/query2"}
+        {name:"Query 2",link:"/query2"},
+        {name:"Query 3",link:"/query3"},
+        {name:"Query 4",link:"/query4"},
+        {name:"Query 5",link:"/query5"}
       ];
 
     return(

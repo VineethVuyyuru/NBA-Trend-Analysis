@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Query1Graph from './Query1Graph';
 import { Container } from 'react-bootstrap';
 import Header from './Header'
+import NavBar from './NavBar'
 
 
 function Query1(){
@@ -55,9 +56,9 @@ function Query1(){
 
     return (
         <div className="">
-            <Header/> 
+            <NavBar/> 
             <br/>
-            <div className="flex mt-20 align-top">
+            <div className="flex align-top">
                 <div className="flex-none ml-10 mr-5 pr-5 border-r">
                     <label className="block mb-2 text-sm font-medium text-black-900">Search Player</label>
                     <input
@@ -89,6 +90,14 @@ function Query1(){
                 </div>
                 
                 <div className="flex-none">
+                    <div className="text-sm font-sans font-semibold p-3 break-normal">
+                        Query 1
+                        <br/>
+                        <br/>
+                    This query tells about the interplay between an NBA player's average points per game (PPG) and 
+                  
+                    their salary across multiple seasons
+                    </div>
                     {selectedResult && (
                         <div>
                         <p className="block mb-2 text-sm font-medium text-black-900 text-center">Selected Player: {selectedResult.name}</p>
