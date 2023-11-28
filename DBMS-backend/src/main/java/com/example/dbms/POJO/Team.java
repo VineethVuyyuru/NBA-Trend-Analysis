@@ -4,24 +4,23 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class Team {
-    private String teamName;
-
+    private String name;
     private String fullName;
 
     public Team() {
     }
 
     public Team(String teamName, String fullName) {
-        this.teamName = teamName;
+        this.name = teamName;
         this.fullName = fullName;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public String getName() {
+        return name;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getFullName() {

@@ -4,6 +4,7 @@ import com.example.dbms.POJO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,8 +22,9 @@ public class queryRepository {
     }
 
     public List<Team> getTeams(){
-        sql="SELECT name AS teamName, fullName AS fullName FROM \"NAGAAKHIL.BELIDE\".Teams";
-        return connection.query(sql, new BeanPropertyRowMapper(Team.class, false));
+        sql="SELECT name , fullName  FROM \"NAGAAKHIL.BELIDE\".Teams";
+        List<Team> temp = connection.query(sql, new BeanPropertyRowMapper(Team.class));
+        return temp;
     }
 
     public List<Count> getTupleCount(){
