@@ -45,9 +45,13 @@ const Query1Graph = ({data}) => {
     };
 
     return (
-        <div style={{position: 'relative', height: '70vh', width: '70vw'}}>
+        <div style={{ height: '75vh', width: '75vw', border : '1px solid', 
+        padding: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'}}>
           <Chart type = "line" data = {data1} options={options}/>
+          <br></br>
+          <br></br>
         </div>
+      
     )
     
 };

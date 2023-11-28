@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Query1Graph from './Query1Graph';
 import { Container } from 'react-bootstrap';
-import Header from './Header'
 import NavBar from './NavBar'
+import Header from './Header';
+import './style.css';
 
 
 function Query1(){
@@ -10,6 +11,8 @@ function Query1(){
     const [results, setResults] = useState([]);
     const [selectedResult, setSelectedResult] = useState(null);
     const [playerDetails, setPlayerDetails] = useState([]);
+    const styles1 = { position: 'relative', zIndex: 1 }; 
+    const styles2 = { position: 'absolute', zIndex: 2 };
 
     useEffect(() => {
         const apiUrl = `http://localhost:8080/getPlayers/${inputValue}`;
@@ -57,32 +60,28 @@ function Query1(){
     return (
         <div className="">
             <NavBar/> 
-            <br/>
-            <div className="flex align-top">
-                <div className="flex-none ml-10 mr-5 pr-5 border-r">
-                    <label className="block mb-2 text-sm font-medium text-black-900">Search Player</label>
+            <br></br>
+            <div className="search-container">
+            
+                <div>
+
+                    <label>Search Player &nbsp;</label>
                     <input
                         type="text"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
-                        className="bg-grey-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder=""
+                        placeholder="Type here"
                     />
-                    
 
-                    <div className="border border-gray-300">
+                    <div className="search-results">
                     {results && results.length > 0 && 
                         results.map((result) => (
                             
-                            <div 
-                            key={result.id}
-                            className="p-2 text-center hover:bg-indigo-500 hover:text-white"
-                           // className={`result-container ${selectedResult === result ? 'selected' : ''}`}
-                            onClick={() => handleResultClick(result)}
-                            >
-                            <p className="block mb-2 text-sm font-medium text-black-900">{result.name}</p>
-                            </div>
-                           
+                        <div key={result.id} onClick={() => handleResultClick(result)} 
+                        className="select-result">
+                        <p className="result">{result.name}</p>
+                        </div>
+                        
                         ))
                     }
                     </div>
@@ -91,27 +90,27 @@ function Query1(){
                 
                 <div className="flex-none">
                     <div className="text-sm font-sans font-semibold p-3 break-normal">
-                        Query 1
-                        <br/>
-                        <br/>
-                    This query tells about the interplay between an NBA player's average points per game (PPG) and 
-                  
-                    their salary across multiple seasons
+                        This query tells about the interplay between an NBA player's average points per game (PPG) and their salary across multiple seasons
                     </div>
-                    {selectedResult && (
-                        <div>
-                        <p className="block mb-2 text-sm font-medium text-black-900 text-center">Selected Player: {selectedResult.name}</p>
+                </div>
+            
+                <div  className="selected-player">
+                {selectedResult && (
+                        <div className="player-name">
+                        <p>Selected Player: {selectedResult.name}</p>
                         </div>
                     )}
-                    <br/>
+                    
                     {playerDetails && playerDetails.length>0 && (
                         <Query1Graph 
                         data = {playerDetails}
                         />
                     )}
+                    
                 </div>
-                
+
             </div>
+
         </div>
     );
 }
