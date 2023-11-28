@@ -21,6 +21,9 @@ public class queryService {
         return repo.getPlayersOnSearch(name);
     }
 
+    public List<Count> getTupleCount(){
+        return repo.getTupleCount();
+    }
     public List<Team> getTeams(){
         return repo.getTeams();
     }

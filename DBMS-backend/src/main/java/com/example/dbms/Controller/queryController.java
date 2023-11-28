@@ -14,6 +14,10 @@ public class queryController {
     @Autowired
     private queryService queryservice;
 
+    @RequestMapping("/getCount")
+    public List<Count> getTupleCount(){
+        return queryservice.getTupleCount();
+    }
     @RequestMapping("/home")
     public String homePage(){
         return queryservice.homePage();

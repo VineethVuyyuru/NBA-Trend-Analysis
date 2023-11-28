@@ -21,8 +21,19 @@ public class queryRepository {
     }
 
     public List<Team> getTeams(){
-        sql="SELECT name AS teamName FROM \"NAGAAKHIL.BELIDE\".Teams";
+        sql="SELECT name AS teamName, fullName AS fullName FROM \"NAGAAKHIL.BELIDE\".Teams";
         return connection.query(sql, new BeanPropertyRowMapper(Team.class, false));
+    }
+
+    public List<Count> getTupleCount(){
+        sql="SELECT SUM(NUMTUPLES) AS counter from (\n" +
+                "select count(1) AS NUMTUPLES from \"NAGAAKHIL.BELIDE\".Players \n" +
+                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".teams \n" +
+                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".salaries \n" +
+                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".games\n" +
+                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".games_details\n" +
+                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".playsFor);";
+        return connection.query(sql, new BeanPropertyRowMapper(Count.class, false));
     }
 
     public List<Players> getPlayersOnSearch(String name){

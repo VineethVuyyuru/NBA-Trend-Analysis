@@ -6,11 +6,14 @@ import org.springframework.stereotype.Repository;
 public class Team {
     private String teamName;
 
+    private String fullName;
+
     public Team() {
     }
 
-    public Team(String teamName) {
+    public Team(String teamName, String fullName) {
         this.teamName = teamName;
+        this.fullName = fullName;
     }
 
     public String getTeamName() {
@@ -19,5 +22,13 @@ public class Team {
 
     public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }
