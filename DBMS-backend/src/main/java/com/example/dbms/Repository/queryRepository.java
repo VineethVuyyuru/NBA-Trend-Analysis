@@ -2,6 +2,7 @@ package com.example.dbms.Repository;
 
 import com.example.dbms.POJO.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -28,14 +29,19 @@ public class queryRepository {
     }
 
     public List<Count> getTupleCount(){
-        sql="SELECT SUM(NUMTUPLES) AS counter from (\n" +
-                "select count(1) AS NUMTUPLES from \"NAGAAKHIL.BELIDE\".Players \n" +
-                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".teams \n" +
-                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".salaries \n" +
-                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".games\n" +
-                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".games_details\n" +
-                "    union all select count(1) from \"NAGAAKHIL.BELIDE\".playsFor);";
-        return connection.query(sql, new BeanPropertyRowMapper(Count.class, false));
+        try {
+            sql="SELECT SUM(NUMTUPLES) AS total_count from (\n" +
+                    "select count(1) AS NUMTUPLES from \"NAGAAKHIL.BELIDE\".Players \n" +
+                    "    union all select count(1) from \"NAGAAKHIL.BELIDE\".teams \n" +
+                    "    union all select count(1) from \"NAGAAKHIL.BELIDE\".salaries \n" +
+                    "    union all select count(1) from \"NAGAAKHIL.BELIDE\".games\n" +
+                    "    union all select count(1) from \"NAGAAKHIL.BELIDE\".games_details\n" +
+                    "    union all select count(1) from \"NAGAAKHIL.BELIDE\".playsFor)";
+            return connection.query(sql, new BeanPropertyRowMapper(Count.class, false));
+        } catch (BadSqlGrammarException e) {
+            System.out.println(e.getSQLException().getMessage());
+        }
+        return null;
     }
 
     public List<Players> getPlayersOnSearch(String name){

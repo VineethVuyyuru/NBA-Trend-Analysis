@@ -1,20 +1,20 @@
 package com.example.dbms.POJO;
 
 public class Count {
-    private Integer counter;
+    private Integer total_count;
 
     public Count() {
     }
 
     public Count(Integer counter) {
-        this.counter = counter;
+        this.total_count = counter;
     }
 
-    public Integer getCounter() {
-        return counter;
+    public Integer getTotal_count() {
+        return total_count;
     }
 
-    public void setCounter(Integer counter) {
-        this.counter = counter;
+    public void setTotal_count(Integer total_count) {
+        this.total_count = total_count;
     }
 }

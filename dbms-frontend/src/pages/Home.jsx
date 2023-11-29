@@ -11,9 +11,9 @@ function Home(){
             const playerDetailsApiUrl = `http://localhost:8080/getCount`;
             const response = await fetch(playerDetailsApiUrl);
             const countVal = await response.json();
-            console.log(countVal)
+            console.log(countVal[0].total_count)
 
-            setCounter(countVal);
+            setCounter(countVal[0].total_count);
             
             setVisible(true);
             
@@ -31,17 +31,31 @@ function Home(){
                 </div>
                 <br/>
                 <div>
-                    <button
-                        type="button"
-                        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        onClick={() => handleClick(result)}
-                    >
-                        Get tuple count
-                    </button>
-                    {visible && (
-                        <p>Count is {counter}</p>
-                    )}
-                    <br/>
+                    <div className="flex">
+
+                    <div>
+                        <button
+                            type="button"
+                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            onClick={() => handleClick()}
+                        >
+                            Get tuple count
+                        </button>
+                    </div>
+                    
+                    
+                        
+
+                        {visible && (
+                            <div className="font-sans text-sm mb-0 pl-3 pt-2.5">Count is {counter}</div>
+                        )}
+                    
+
+                    </div>
+
+                    
+                  
+                    
                     <div className="font-sans text-sm pt-4 text-justify">
                         Sports analysis provides valuable insights into the dynamics of a sport 
                         and can be used to acquire various types of data such as performance analysis, 
