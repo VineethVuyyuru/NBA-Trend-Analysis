@@ -1,5 +1,7 @@
 import NavBar from './NavBar'
 import React, { useState, useEffect } from 'react';
+import SideBar from './SideBar';
+import { Container, Row, Col } from 'react-bootstrap';
 
 
 function Home(){
@@ -24,7 +26,14 @@ function Home(){
 
     return(
         <>
-            <NavBar/>
+            
+        
+            
+           <Container fluid="xs">
+           <Row className="min-vh-100" >
+           <Col xs={"auto"}><SideBar/></Col>
+           <Col>
+           <NavBar/>
             <div className="flex  flex-col p-10 align-top">
                 <div className="text-2xl font-sans font-semibold">
                     NBA Trend Analysis
@@ -126,6 +135,10 @@ function Home(){
                     
                 </div>
             </div>
+            </Col>
+            </Row>
+            </Container>
+           
         </>
     )
 }

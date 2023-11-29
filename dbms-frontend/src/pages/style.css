@@ -47,3 +47,10 @@ input[type=text] {
      font: sans-serif;
     font-size: 20px;
   }
+
+  .btn-get-started{
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }

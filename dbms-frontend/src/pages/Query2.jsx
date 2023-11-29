@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Query1Graph from './Query1Graph';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Header from './Header'
 import PlayerSelect from './PlayerSelect';
 import NavBar from './NavBar'
 import Query2Graph from './Query2Graph';
+import SideBar from './SideBar';
 
 function Query1(){
     const [inputValue, setInputValue] = useState('');
@@ -34,6 +35,11 @@ function Query1(){
 
 
     return (
+        <Container fluid="xs">
+            <Row className="min-vh-100" >
+                <Col xs={"auto"}><SideBar/></Col>
+
+                <Col>
         <div className="">
             {/* <Header/>  */}
             <NavBar/>
@@ -70,6 +76,9 @@ function Query1(){
                 </div>    
             </div>
         </div>
+        </Col>
+        </Row>
+        </Container>
     );
 }
 

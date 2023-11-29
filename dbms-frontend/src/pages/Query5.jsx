@@ -4,6 +4,8 @@ import NavBar from './NavBar'
 import { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import { Container, Row, Col } from 'react-bootstrap';
+import SideBar from './SideBar';
 
 
 function classNames(...classes) {
@@ -77,6 +79,11 @@ function Query5(){
 
 
     return (
+        <Container fluid="xs">
+            <Row className="min-vh-100" >
+                <Col xs={"auto"}><SideBar/></Col>
+
+                <Col>
         <div className="">
             <NavBar/> 
             <br/>
@@ -235,6 +242,9 @@ function Query5(){
                 
             </div>
         </div>
+        </Col>
+        </Row>
+        </Container>
     );
 }
 

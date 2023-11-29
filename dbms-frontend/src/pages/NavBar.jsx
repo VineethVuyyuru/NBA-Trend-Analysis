@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../../src/logo_image.png'
+import logo1 from '../../src/NBA-Analytics-Logo.png'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -19,6 +20,11 @@ export default function Example() {
                   <img
                     className='h-15 w-10'
                     src={logo} alt='iamge'
+                  />
+                  <img
+                    className='h-15 w-10'
+                    style={{borderRadius : "50%"}}
+                    src={logo1} alt='iamge'
                   />
                  
                 </div>
@@ -59,6 +65,12 @@ export default function Example() {
                     className="border-transparent text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
                   >
                     Query5
+                  </a>
+                  <a
+                    href="/homepage"
+                    className="border-transparent text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
+                  >
+                    Main-Home
                   </a>
                 </div>
               </div>
