@@ -3,35 +3,34 @@ import  "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 
 
-const Query5Graph = ({data}) => {
+const Query2Graph = ({data}) => {
     var arrlabels = [];
-    var team1efg = [];
-    var team2efg = [];
-    var teamA = data[0].team1;
-    var teamB = data[0].team2;
+    var points = [];
+    var avgOfTop = [];
+ 
 
     data.forEach(function (data) {
         arrlabels.push(data.season);
-        team1efg.push(data.team1_efg);
-        team2efg.push(data.team2_score);
+        points.push(data.points);
+        avgOfTop.push(data.avgOfTop);
     });
 
-    console.log(teamA)
+
     
     const data1 = {
         labels: arrlabels,
         datasets: [
           {
-            label: teamA,
+            label: "Selected Player Avg Points per Game",
             backgroundColor: "#FFCA48",
             borderColor: "#FFCA48",
-            data: team1efg,
+            data: points,
           },
           {
-            label: teamB,
+            label: "Avg points per game of Top 5 players of the season",
             backgroundColor: "rgb(231, 76, 60)",
             borderColor: "rgb(231, 76, 60)",
-            data: team2efg,
+            data: avgOfTop,
           }
         ],
     };
@@ -43,7 +42,7 @@ const Query5Graph = ({data}) => {
     return (
         <div style={{ height: '75vh', width: '75vw', border : '1px solid', 
         padding: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'}}>
-          <Chart type = "bar" data = {data1} options={options}/>
+          <Chart type = "line" data = {data1} options={options}/>
           <br></br>
           <br></br>
         </div>
@@ -52,4 +51,4 @@ const Query5Graph = ({data}) => {
     
 };
 
-export default Query5Graph
+export default Query2Graph

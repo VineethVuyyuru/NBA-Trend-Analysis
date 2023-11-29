@@ -159,7 +159,8 @@ public class queryRepository {
                 ")\n" +
                 "select tm1.season, team1, team1_efg, team2, team2_efg AS team2_score from tm1\n" +
                 "inner join tm2\n" +
-                "ON tm1.season = tm2.season";
+                "ON tm1.season = tm2.season\n"+
+                "ORDER BY 1";
         Object[] params = new Object[] { team1, team2 };
         List<eFGMetric> temp = connection.query(sql, params, new BeanPropertyRowMapper(eFGMetric.class, false));
         return temp;

@@ -16,7 +16,8 @@ function Query5(){
     const [selectedResult2, setSelectedResult2] = useState(null);
     const [selectedResultFull1, setSelectedResultFull1] = useState(null);
     const [selectedResultFull2, setSelectedResultFull2] = useState(null);
-    const [grpahData, setGraphData] = useState([]);
+    const [visible, setVisible] = useState(false);
+    const [graphData, setGraphData] = useState([]);
 
     useEffect(() => {
         const apiUrl = `http://localhost:8080/teams`;
@@ -49,6 +50,7 @@ function Query5(){
             console.log(playerDetailsApiUrl)
             console.log(resData)
             setGraphData(resData);
+            setVisible(true);
             
             
         } catch (error) {
@@ -207,10 +209,7 @@ function Query5(){
                         SUBMIT
                     </button>
 
-                </div>
-
-                
-                
+                </div>           
                 
                 <div className="w-3/4">
                     <div className="text-sm font-sans font-semibold p-3 break-normal">
@@ -221,17 +220,17 @@ function Query5(){
                   
                     their salary across multiple seasons
                     </div>
-                    {/* {selectedResult1 && (
+                    {visible &&(
                         <div>
-                        <p className="block mb-2 text-sm font-medium text-black-900 text-center">Selected Player: {selectedResult1.teamName}</p>
+                        <p className="block mb-2 text-sm font-medium text-black-900 text-center">Selected Teams are : {selectedResultFull1}, { selectedResultFull2}</p>
                         </div>
-                    )} */}
+                    )} 
                     <br/>
-                    {/* {grpahData && grpahData.length>0 && (
+                    {graphData && graphData.length>0 && (
                         <Query5Graph 
-                        data = {grpahData}
+                        data = {graphData}
                         />
-                    )} */}
+                    )}
                 </div>
                 
             </div>
