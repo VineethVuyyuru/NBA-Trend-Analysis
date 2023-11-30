@@ -1,87 +1,18 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import logo from '../../src/logo_image.png'
 import logo1 from '../../src/NBA-Analytics-Logo.png'
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import { Nav } from 'react-bootstrap'
+
 
 export default function Example() {
+  
   return (
-    <Disclosure as="nav" className="bg-white shadow">
-      {({ open }) => (
-        <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex">
-                <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className='h-15 w-10'
-                    src={logo} alt='iamge'
-                  />
-                  <img
-                    className='h-15 w-10'
-                    style={{borderRadius : "50%"}}
-                    src={logo1} alt='iamge'
-                  />
-                 
-                </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <a
-                    href="/"
-                    className="border-transparent text-gray-900 hover:border-indigo-600 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
-                  >
-                    Home
-                  </a>
-                  <a
-                    href="/query1"
-                    className="border-transparent  text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
-                  >
-                    Query1
-                  </a>
-                  <a
-                    href="/query2"
-                    className="border-transparent text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
-                  >
-                    Query2
-                  </a>
-                  <a
-                    href="/query3"
-                    className="border-transparent text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
-                  >
-                    Query3
-                  </a>
-                  <a
-                    href="/query4"
-                    className="border-transparent text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
-                  >
-                    Query4
-                  </a>
-                  <a
-                    href="/query5"
-                    className="border-transparent text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
-                  >
-                    Query5
-                  </a>
-                  <a
-                    href="/homepage"
-                    className="border-transparent text-gray-500 hover:border-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-sans no-underline hover:text-base"
-                  >
-                    Main-Home
-                  </a>
-                </div>
-              </div>
-              
-              
-            </div>
-          </div>
-
-          
-        </>
-      )}
-    </Disclosure>
+      <Nav className='navbar navbar-dark fixed-top'>
+      <a className='navbar-brand ml-10' href='/HomePage'>
+      <img src={logo1} alt='' width={40} height={40} style={{borderRadius: "50%"}} className='d-inline-block align-top'/> &nbsp; NBA Analytics</a>
+      <ul className='navbar-nav ml-auto'>
+        <li className='nav-item'>
+            <a className='nav-link mr-10 text-white' href='/' style={{fontSize : '22px'}}>Get Started</a>
+        </li>
+      </ul>
+      </Nav>
   )
 }

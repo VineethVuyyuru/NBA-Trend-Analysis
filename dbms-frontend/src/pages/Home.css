@@ -1,0 +1,31 @@
+.homeimage{
+    background-image: url('../image1.jpg');
+    height: 85vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.quote{
+    color: ghostwhite;
+    font-weight: bold;
+    font-family: 'Merienda';
+    margin-left: 45px;
+    font-size: 40px;
+    padding-top: 250px;
+}
+.about{
+    background-color: "#000620";
+    /* width: 500px; */
+    box-shadow: 0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5);
+    border-radius: 20px;
+    font-size: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    text-align: justify;
+}
+
+.btn-get-started{
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+}

@@ -33,7 +33,7 @@ function Home(){
            <Row className="min-vh-100" >
            <Col xs={"auto"}><SideBar/></Col>
            <Col>
-           <NavBar/>
+          
             <div className="flex  flex-col p-10 align-top">
                 <div className="text-2xl font-sans font-semibold">
                     NBA Trend Analysis
