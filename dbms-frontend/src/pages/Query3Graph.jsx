@@ -3,47 +3,49 @@ import  "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 
 
-const Query1Graph = ({data}) => {
-    var arrLabels = [];
-    var arrPoints = [];
-    var arrSalary = [];
-    
+const Query3Graph = ({data}) => {
+    var arrlabels = [];
+    var arrfieldGoalsMade = [];
+    var arrfreeThrowsMade = [];
+    var arrthreePointsThrowsMade = [];
+
     data.forEach(function (data) {
-        arrLabels.push(data.year);
-        arrPoints.push(data.points);
-        arrSalary.push(data.salary);
-        
+        arrlabels.push(data.season);
+        arrfieldGoalsMade.push(data.fieldGoalsMade);
+        arrfreeThrowsMade.push(data.freeThrowsMade);
+        arrthreePointsThrowsMade.push(data.threePointsThrowsMade);
     });
     
     const data1 = {
-        labels: arrLabels,
+        labels: arrlabels,
         datasets: [
           {
-            label: "Ponts Scored",
+            label: "Field Goals Made",
             backgroundColor: "#FFCA48",
             borderColor: "#FFCA48",
-            data: arrPoints,
-            yAxisID: 'y',
+            data: arrfieldGoalsMade,
           },
           {
-            label: "Salary",
+            label: "Field Throws Made",
             backgroundColor: "rgb(231, 76, 60)",
             borderColor: "rgb(231, 76, 60)",
-            data: arrSalary,
-            yAxisID: 'y1'
+            data: arrfreeThrowsMade,
+          },
+          {
+            label: "Three Points Throws Made",
+            backgroundColor: "Green",
+            borderColor: "Green",
+            data: arrthreePointsThrowsMade,
           },
         ],
     };
 
     const options = {
-       
         maintainAspectRatio: false,
         scales: {
           y: {
-            type: 'linear',
-            position: 'left',
               title: {
-                  
+                  // Include a dollar sign in the ticks
                   display: true,
                   text : 'Points Scored',
                   color: 'black',
@@ -54,25 +56,9 @@ const Query1Graph = ({data}) => {
                   }
               }
           },
-          y1: {
-            type: 'linear',
-            position: 'right',
-            title: {
-                display: true,
-                text : 'Salary in $',
-                color: 'black',
-                font: {
-                  family: "sans-serif",
-                  size: 20,
-                  weight: 'bold'
-                },
-            },
-            grid: {
-              drawOnChartArea: false, 
-            },
-        },
           x: {
             title: {
+                // Include a dollar sign in the ticks
                 display: true,
                 text : 'Year',
                 color: 'black',
@@ -97,4 +83,4 @@ const Query1Graph = ({data}) => {
     
 };
 
-export default Query1Graph
+export default Query3Graph

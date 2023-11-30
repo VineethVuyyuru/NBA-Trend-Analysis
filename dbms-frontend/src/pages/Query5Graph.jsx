@@ -37,17 +37,42 @@ const Query5Graph = ({data}) => {
     };
 
     const options = {
-        maintainAspectRatio: false
-    };
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+            title: {
+                display: true,
+                text : 'Points Scored',
+                color: 'black',
+                font: {
+                  family: "sans-serif",
+                  size: 20,
+                  weight: 'bold'
+                }
+            }
+        },
+        x: {
+          title: {
+              display: true,
+              text : 'Year',
+              color: 'black',
+              font: {
+                family: "sans-serif",
+                size: 20,
+                weight: 'bold'
+              }
+          }
+      }
+    }
+     
+  };
 
     return (
-        <div style={{ height: '75vh', width: '75vw', border : '1px solid', 
-        padding: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'}}>
-          <Chart type = "bar" data = {data1} options={options}/>
-          <br></br>
-          <br></br>
+       
+        <div style={{ height: '73vh', width: '73vw', border : '1px solid', 
+        padding: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', backgroundColor: 'white'}}>
+          <Chart type = "line" data = {data1} options={options}/>
         </div>
-      
     )
     
 };

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Query1Graph from './Query1Graph';
+import Query4Graph from './Query4Graph';
 import { Container, Row, Col } from 'react-bootstrap';
-import NavBar from './NavBar'
-import Header from './Header';
 import './style.css';
 import SideBar from './SideBar';
 
 
-function Query1(){
+function Query4(){
     const [inputValue, setInputValue] = useState('');
     const [results, setResults] = useState([]);
     const [selectedResult, setSelectedResult] = useState(null);
@@ -40,7 +38,7 @@ function Query1(){
             setResults([]);
             setInputValue('');
             // Example: Assuming there's an API endpoint for player details
-            const playerDetailsApiUrl = `http://localhost:8080/query1/${result.name}`;
+            const playerDetailsApiUrl = `http://localhost:8080/query4/${result.name}`;
             const response = await fetch(playerDetailsApiUrl);
             const playerData = await response.json();
            
@@ -67,7 +65,7 @@ function Query1(){
                     <div>
                         
                         <div>
-                            <p className="title">Salary vs PPG</p>
+                            <p className="title">Query 4</p>
                             <div className='ml-6'>
                                 <p className="description-title">Description:</p>
                                 <p className="description">
@@ -112,7 +110,7 @@ function Query1(){
                                     </div>
                                 )} 
                                 {playerDetails && playerDetails.length>0 && (
-                                    <Query1Graph 
+                                    <Query4Graph 
                                     data = {playerDetails}
                                     />
                                 )}
@@ -129,4 +127,4 @@ function Query1(){
     );
 }
 
-export default Query1
+export default Query4

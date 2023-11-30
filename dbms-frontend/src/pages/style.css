@@ -1,10 +1,44 @@
+.page{
+  background-color: black;
+  /* background-color: #FCFCFC; */
+  padding: 0;
+  background-image: url('../image1.jpg');
+  background-size: cover;
+}
+.title{
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  font-family: Verdana, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+  box-shadow: 0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  padding: 15px;
+  color: white;
+  background-color: #111827;
+
+}
+.description-title{
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+}
+.description{
+   /* font: sans-serif; */
+   color: white;
+  font-family: Verdana, sans-serif;
+}
 label {
-    font-weight: bold;
-    font: sans-serif;
+    font-weight: 500;
+    /* font: sans-serif; */
+    font-family: Verdana, sans-serif;
+    color: white;
 }
 
 input[type=text] {
-    border: 2px solid;
+    border: 1.5px solid;
     border-radius: 5px;
     border-color: black;
     text-align: center;
@@ -24,9 +58,11 @@ input[type=text] {
     z-index: 1;
     background-color: white;
     text-align: center;
-    left: 47%;
+    align-items: center;
+    margin-left: 9.7%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
+ 
   .select-result:hover {
     cursor: pointer;
     background-color: navy;
@@ -36,11 +72,12 @@ input[type=text] {
   .selected-player {
     margin-top: 10px;
     align-self: center;
+    color: white;
   }
   .result{
      margin-top: 0;
      margin-bottom: 0;
-     padding: 6px;
+     padding: 8px;
   }
   .player-name{
     font-weight: bold;

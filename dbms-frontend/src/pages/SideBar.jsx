@@ -10,18 +10,16 @@ import {
 
 const SideBar = () => {
   return (
-      <CDBSidebar>
-        <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>Menu</CDBSidebarHeader>
+      <CDBSidebar minWidth='90px' maxWidth='235px'>
+        <CDBSidebarHeader prefix={<i className="fa fa-bars" />}><a style={{textDecoration: 'none', color: 'white'}} href='/'>NBA Analytics</a></CDBSidebarHeader>
         <CDBSidebarContent>
           <CDBSidebarMenu>
-            <CDBSidebarMenuItem icon="th-large"><a href='/'>Dashboard</a></CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="chart-line"><a href='/query1'>Salary vs PPG</a></CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="users">
-            <a href='/query2'>Player vs Top 5</a>
-            </CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="chart-line"><a href='/'>Query 3</a></CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="user-shield"><a href='/'>Query 4</a></CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="chart-bar"><a href='/query5'>Teams eFG</a></CDBSidebarMenuItem>
+           <a href='/dashboard'><CDBSidebarMenuItem icon="th-large">Dashboard</CDBSidebarMenuItem></a>
+           <a href='/query1'><CDBSidebarMenuItem icon="chart-line">Salary vs PPG</CDBSidebarMenuItem></a>
+           <a href='/query2'><CDBSidebarMenuItem icon="users">Player vs Top 5</CDBSidebarMenuItem></a>
+           <a href='/'><CDBSidebarMenuItem icon="chart-line">Query 3</CDBSidebarMenuItem></a>
+           <a href='/query4'><CDBSidebarMenuItem icon="user-shield">Query 4</CDBSidebarMenuItem></a>
+           <a href='/query5'><CDBSidebarMenuItem icon="chart-bar">Teams eFG</CDBSidebarMenuItem></a>
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
