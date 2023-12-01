@@ -171,15 +171,13 @@ public class queryRepository {
         sql="WITH PlayerHeightSets AS (\n" +
                 "  SELECT\n" +
                 "    p.playerID,\n" +
-                "    AVG(height) AS avg_height,\n" +
-                "    NTILE(5) OVER (ORDER BY AVG(height)) AS height_set\n" +
+                "    height ,\n" +
+                "    NTILE(5) OVER (ORDER BY height) AS height_set\n" +
                 "  FROM \"NAGAAKHIL.BELIDE\".Players p\n" +
                 "  WHERE height IS NOT NULL\n" +
-                "  GROUP BY p.playerID\n" +
                 "),\n" +
                 "PlayerPerformance AS (\n" +
                 "  SELECT\n" +
-                "    phs.playerID,\n" +
                 "    phs.height_set,\n" +
                 "    g.season,\n" +
                 "    AVG(COALESCE(gd.rebounds, 0)) AS avg_rebounds,\n" +
@@ -188,32 +186,31 @@ public class queryRepository {
                 "    AVG(COALESCE(gd.FieldGoalsMade, 0)) AS avg_field_goals_made,\n" +
                 "    AVG(COALESCE(gd.total_points, 0)) AS avg_total_points\n" +
                 "  FROM \"NAGAAKHIL.BELIDE\".PlayerHeightSets phs\n" +
-                "  JOIN \"NAGAAKHIL.BELIDE\".Players p ON phs.playerID = p.playerID\n" +
-                "  JOIN \"NAGAAKHIL.BELIDE\".games_details gd ON p.playerID = gd.playerID\n" +
-                "  JOIN \"NAGAAKHIL.BELIDE\".games g ON g.gameID = gd.gameID\n" +
-                "  GROUP BY phs.playerID, phs.height_set, g.season\n" +
+                "  INNER JOIN \"NAGAAKHIL.BELIDE\".Players p ON phs.playerID = p.playerID\n" +
+                "  INNER JOIN \"NAGAAKHIL.BELIDE\".games_details gd ON p.playerID = gd.playerID\n" +
+                "  INNER JOIN \"NAGAAKHIL.BELIDE\".games g ON g.gameID = gd.gameID\n" +
+                "  GROUP BY  phs.height_set, g.season\n" +
                 "),\n" +
                 "HeightSetRanges AS (\n" +
                 "  SELECT\n" +
                 "    height_set,\n" +
-                "    MIN(avg_height) AS min_height,\n" +
-                "    MAX(avg_height) AS max_height\n" +
+                "    MIN(height) AS min_height,\n" +
+                "    MAX(height) AS max_height\n" +
                 "  FROM \"NAGAAKHIL.BELIDE\".PlayerHeightSets\n" +
                 "  GROUP BY height_set\n" +
                 ")\n" +
                 "SELECT\n" +
                 "  pp.height_set,\n" +
                 "  pp.season,\n" +
-                "  ROUND(AVG(pp.avg_rebounds), 5) AS avg_rebounds,\n" +
-                "  ROUND(AVG(pp.avg_steals), 5) AS avg_steals,\n" +
-                "  ROUND(AVG(pp.avg_blocked_shots), 5) AS avg_blocked_shots,\n" +
-                "  ROUND(AVG(pp.avg_field_goals_made), 5) AS avg_field_goals_made,\n" +
-                "  ROUND(AVG(pp.avg_total_points), 5) AS avg_total_points,\n" +
+                "  ROUND(pp.avg_rebounds, 5) AS avg_rebounds,\n" +
+                "  ROUND(pp.avg_steals, 5) AS avg_steals,\n" +
+                "  ROUND(pp.avg_blocked_shots, 5) AS avg_blocked_shots,\n" +
+                "  ROUND(pp.avg_field_goals_made, 5) AS avg_field_goals_made,\n" +
+                "  ROUND(pp.avg_total_points, 5) AS avg_total_points,\n" +
                 "  hr.min_height,\n" +
                 "  hr.max_height\n" +
                 "FROM \"NAGAAKHIL.BELIDE\".PlayerPerformance pp\n" +
                 "JOIN \"NAGAAKHIL.BELIDE\".HeightSetRanges hr ON pp.height_set = hr.height_set\n" +
-                "GROUP BY pp.height_set, pp.season, hr.min_height, hr.max_height\n" +
                 "ORDER BY pp.season, pp.height_set";
         List<HeightDiv> temp = connection.query(sql, new BeanPropertyRowMapper(HeightDiv.class, false));
         return temp;

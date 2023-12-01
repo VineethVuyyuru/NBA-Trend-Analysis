@@ -27,9 +27,9 @@ const SideBar = () => {
           <CDBSidebarMenu>
            <a href='/dashboard'><CDBSidebarMenuItem icon="th-large">Dashboard</CDBSidebarMenuItem></a>
            <a href='/query1'><CDBSidebarMenuItem icon="chart-line">Salary vs Total Points</CDBSidebarMenuItem></a>
-           <a href='/query2'><CDBSidebarMenuItem icon="users">Player vs Top 5</CDBSidebarMenuItem></a>
-           <a href='/query6'><CDBSidebarMenuItem icon="chart-line">Height based perf</CDBSidebarMenuItem></a>
            <a href='/query4'><CDBSidebarMenuItem icon="chart-bar">Players best vs worst</CDBSidebarMenuItem></a>
+           <a href='/query6'><CDBSidebarMenuItem icon="chart-line">Height based perf</CDBSidebarMenuItem></a>
+           <a href='/query2'><CDBSidebarMenuItem icon="users">Player vs Top 5</CDBSidebarMenuItem></a>
            <a href='/query5'><CDBSidebarMenuItem icon="user-shield">Team vs Team eFG</CDBSidebarMenuItem></a>
           </CDBSidebarMenu>
         </CDBSidebarContent>
