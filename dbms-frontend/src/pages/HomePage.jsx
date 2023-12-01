@@ -33,7 +33,7 @@ export default function HomePage(){
                         left: '43%',
                         width: '200px', textAlign: 'center',
                         boxshadow: '0 4px 8px rgba(0, 0, 0, 1)'}}>
-                    <a className='nav-link text-white btn-get-started' href='/'>Get Started</a>
+                    <a className='nav-link text-white btn-get-started' href='/dashboard'>Get Started</a>
                 </div>
             </div>
             <div>
@@ -48,7 +48,7 @@ export default function HomePage(){
                         </Col>
                         <Col>
                             <br></br>
-                            <div><h1 >About us</h1></div>
+                            <div><h1 >Our Aim</h1></div>
                             <br></br>
                             <div className='d-flex justify-content-center align-items-center '>
                                 <div className="about">
@@ -56,8 +56,17 @@ export default function HomePage(){
                                 and can be used to acquire various types of data such as performance analysis, 
                                 planning tactics, market evaluation of a player or team and much more. 
                                 Basketball holds a significant position among sports having a global following. 
-                                The NBA in particular is one of the most prominent professional basketball leagues in the world with the market evaluation of the average NBA team around a whopping $2.86 billion with the Golden State Warriors at the lead with $7 billion according to forbes. 
-                                Each team's value is rising and the growth has increased even more compared to precovid numbers meaning a buyer can earn cash quickly and wouldn't need to spend a penny ever again. Apart from this, transactions between teams for player trades are worth millions of dollars so club managers must be actively involved in this process whether to bring in a player to improve their own dynamics or increase capital by giving up a player. All of this is dependent on a teams and its players performance statistics over the seasons showing how much of a need there is to analyze the data. This project aims to provide tools for measuring certain metrics that can help in evaluating the market value of players and teams by considering team win percentages, their player performances and individual player statistics related to types of goals made, field position and their individual contribution to the team.
+                                <br/><br/>
+                                Our web app provides deep insights from the NBA's extensive dataset of 28,000 matches and 1,800 players, 
+                                catering to diverse user needs. It allows comparisons based on metrics like points scored, 
+                                team contributions, and effective field goal percentage for talent assessment or casual exploration.
+                                <br/><br/>
+                                Utilizing data analytics, our platform aids decision-making, 
+                                strategy formation, and a comprehensive understanding of NBA stats across various timeframes. 
+                                It's designed for both rigorous statistical analysis and casual data exploration, 
+                                offering an engaging experience for all users. Whether you're a team manager, 
+                                analyst, or a casual fan, our app aims to deliver enjoyable and insightful interactions 
+                                with NBA data.
                                 </div>  
                             </div>
                             <br></br>

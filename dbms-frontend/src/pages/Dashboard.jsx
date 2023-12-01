@@ -38,10 +38,14 @@ function Dashboard(){
                     padding: '15px', fontSize: '30px', color: 'white', textAlign: 'center',
                     fontFamily: 'Verdana, sans-serif', fontWeight: 'bold'}}> Dashboard </p>
                     <div className='pl-5' >
-                        <div className="font-sans text-sm pt-4 text-justify">
-                            Sports analysis provides valuable insights into the dynamics of a sport 
-                            and can be used to acquire various types of data such as performance analysis, 
-                            planning tactics, market evaluation of a player or team and much more. Basketball holds a significant position among sports having a global following. The NBA in particular is one of the most prominent professional basketball leagues in the world with the market evaluation of the average NBA team around a whopping $2.86 billion with the Golden State Warriors at the lead with $7 billion according to forbes. Each team's value is rising and the growth has increased even more compared to precovid numbers meaning a buyer can earn cash quickly and wouldn't need to spend a penny ever again. Apart from this, transactions between teams for player trades are worth millions of dollars so club managers must be actively involved in this process whether to bring in a player to improve their own dynamics or increase capital by giving up a player. All of this is dependent on a teams and its players performance statistics over the seasons showing how much of a need there is to analyze the data. This project aims to provide tools for measuring certain metrics that can help in evaluating the market value of players and teams by considering team win percentages, their player performances and individual player statistics related to types of goals made, field position and their individual contribution to the team.
+                        <div className="font-sans text-lg pt-4 text-justify pr-16">
+                        Our application offers versatile tools for analyzing statistics in diverse ways, 
+                        catering to both team-oriented and player-focused evaluations within the context of the NBA. 
+                        Our suite of tools facilitates comparisons between teams or players, 
+                        employing a wide array of metrics that serve multiple purposes. 
+                        From assessing a player's financial value to formulating strategic plans for teams, 
+                        our platform delivers invaluable insights derived from years of NBA league data.
+                        In essence, our application serves as a multifaceted toolset leveraging extensive NBA data. 
                         </div>
                         <br/>
                         <div className="flex">

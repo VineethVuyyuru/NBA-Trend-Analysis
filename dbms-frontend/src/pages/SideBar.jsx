@@ -1,17 +1,28 @@
 import React from 'react';
+import Logo from '../NBA-Analytics-Logo.png'
+
 import {
   CDBSidebar,
   CDBSidebarContent,
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
-  CDBSidebarFooter,
+  CDBSidebarFooter
 } from 'cdbreact';
 
 const SideBar = () => {
   return (
-      <CDBSidebar minWidth='90px' maxWidth='235px'>
-        <CDBSidebarHeader prefix={<i className="fa fa-bars" />}><a style={{textDecoration: 'none', color: 'white'}} href='/'>NBA Analytics</a></CDBSidebarHeader>
+      <CDBSidebar minWidth='90px' maxWidth='265px'>
+        <CDBSidebarHeader icon="th-large" prefix={<i className="fa fa-bars" />}>
+        <div className="container px-0" style={{ display: 'flex', alignItems: 'center' }}>
+          <img
+              src={Logo}
+              alt="Brand"
+              style={{ width: '30px', borderRadius: '50%' }}
+            />
+            <a className="ms-2" style={{textDecoration: 'none', color: 'white'}} href='/'>NBA Analytics</a>
+        </div>
+        </CDBSidebarHeader>
         <CDBSidebarContent>
           <CDBSidebarMenu>
            <a href='/dashboard'><CDBSidebarMenuItem icon="th-large">Dashboard</CDBSidebarMenuItem></a>
@@ -28,7 +39,7 @@ const SideBar = () => {
             className="sidebar-btn-wrapper"
             style={{padding: '20px 5px'}}
           >
-            © University of Florida
+            © DBMS Group 04
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
