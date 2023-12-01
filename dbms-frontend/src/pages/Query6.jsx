@@ -111,7 +111,7 @@ function Query6(){
                             </div>
                            
                             <div  className="selected-player">
-                               
+                               <br></br>
                                 {playerDetails && playerDetails.length>0 && (
                                     <Zoom>
                                     <Query6Graph 
