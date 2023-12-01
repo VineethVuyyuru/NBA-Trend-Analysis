@@ -37,11 +37,10 @@ public class queryController {
         return queryservice.query1(name);
     }
 
-    @RequestMapping("/query2/{name}")
-    public List<PerfCompare> query2(@PathVariable String name){
-        return queryservice.query2(name);
+    @RequestMapping("/query2/{name}/{type}")
+    public List<PerfCompare> query2(@PathVariable String name, @PathVariable String type){
+        return queryservice.query2(name, type);
     }
-
     @RequestMapping("/query3/{name}")
     public List<PlayerPoints> query3(@PathVariable String name){
         return queryservice.query3(name);
@@ -55,5 +54,10 @@ public class queryController {
     @RequestMapping("/query5/{team1}/{team2}")
     public List<eFGMetric> query5(@PathVariable String team1, @PathVariable String team2){
         return queryservice.query5(team1, team2);
+    }
+
+    @RequestMapping("/query6")
+    public List<HeightDiv> query6(){
+        return queryservice.query6();
     }
 }

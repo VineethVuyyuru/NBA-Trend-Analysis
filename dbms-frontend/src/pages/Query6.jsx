@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import Query2Graph from './Query2Graph';
+import Query6Graph from './Query6Graph';
 import { Container, Row, Col } from 'react-bootstrap';
 import './style.css';
 import SideBar from './SideBar';
 
 
-function Query2(){
+function Query6(){
     const [inputValue, setInputValue] = useState('');
     const [results, setResults] = useState([]);
     const [selectedResult, setSelectedResult] = useState(null);
     const [playerDetails, setPlayerDetails] = useState([]);
     const [selectedOption, setSelectedOption] = useState('');
 
-    const handleDropdownChange = (event) => {
+    const handleDropdownChange = async(event) => {
         setSelectedOption(event.target.value);
+
+        const playerDetailsApiUrl = `http://localhost:8080/query6`;
+        const response = await fetch(playerDetailsApiUrl);
+        const playerData = await response.json();
+        
+        console.log(playerData)
+        setPlayerDetails(playerData);
+        console.log(playerDetails)
       };
 
     useEffect(() => {
@@ -23,6 +31,7 @@ function Query2(){
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
+
             setResults(data); 
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -43,7 +52,7 @@ function Query2(){
             setResults([]);
             setInputValue('');
             // Example: Assuming there's an API endpoint for player details
-            const playerDetailsApiUrl = `http://localhost:8080/query2/${result.name}/${selectedOption}`;
+            const playerDetailsApiUrl = `http://localhost:8080/query6`;
             const response = await fetch(playerDetailsApiUrl);
             const playerData = await response.json();
            
@@ -67,10 +76,9 @@ function Query2(){
 
                 <Col className='px-0 page'>
                
-                    <div>
-                        
+                    <div>                      
                         <div>
-                            <p className="title">Player vs Top 5</p>
+                            <p className="title">Metrics based on Height</p>
                             <div className='ml-6'>
                                 <p className="description-title">Description:</p>
                                 <p className="description">
@@ -86,51 +94,25 @@ function Query2(){
                                     <label htmlFor="selectOption">Select an Option &nbsp;</label>
                                     <select id="selectOption" value={selectedOption} onChange={handleDropdownChange}>
                                         <option value="">Select an option</option>
-                                        <option value="fieldgoalsmade">Field Goals Made</option>
-                                        <option value="freethrowsmade">Free Throws Made</option>
-                                        <option value="threepointsthrowsmade">Three-Point Throws Made</option>
+                                        <option value="avg_rebounds">Rebounds</option>
+                                        <option value="avg_steals">Steals</option>
+                                        <option value="avg_blocked_shots">Blocked Shots</option>
+                                        <option value="avg_field_goals_made">Field Goals Made</option>
+                                        <option value="avg_total_points">Total Points</option>
                                     </select>
 
                                     {/* Display the selected option */}
                                     {/* {selectedOption && <p>Selected Option: {selectedOption}</p>} */}
                                 </div>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <div>
-                                    
-                                    <label>Search Player &nbsp;</label>
-                                    <input
-                                        type="text"
-                                        value={inputValue}
-                                        onChange={(e) => setInputValue(e.target.value)}
-                                        placeholder="Type here"
-                                    />
-                                    
-                                    <div className="search-results">
-                                    {results && results.length > 0 && 
-                                        results.map((result) => (
-                                            
-                                        <div key={result.id} onClick={() => handleResultClick(result)} 
-                                        className="select-result">
-                                        <p className="result">{result.name}</p>
-                                        </div>
-                                        
-                                        ))
-                                    }
-                                    </div>
                                 
-                                </div>
                             </div>
                            
                             <div  className="selected-player">
                                
-                                 {selectedResult && (
-                                    <div className="player-name">
-                                    <p>Player Name: {selectedResult.name}</p>
-                                    </div>
-                                )} 
                                 {playerDetails && playerDetails.length>0 && (
-                                    <Query2Graph 
-                                    data = {playerDetails}
+                                    <Query6Graph 
+                                    data = {playerDetails} col = {selectedOption}
                                     />
                                 )}
                                 <br></br>
@@ -146,4 +128,4 @@ function Query2(){
     );
 }
 
-export default Query2
+export default Query6

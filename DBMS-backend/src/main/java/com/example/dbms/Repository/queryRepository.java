@@ -70,19 +70,19 @@ public class queryRepository {
         return connection.query(sql, params, new BeanPropertyRowMapper(PlayerSal.class, false));
     }
 
-    public List<PerfCompare> query2(String name){
+    public List<PerfCompare> query2(String name, String type){
         sql="WITH t1 AS (\n" +
-                "SELECT playerid, ROUND(AVG(fieldgoalsmade), 4) AS pseasonavg, season FROM (\n" +
-                "SELECT playerid, gd.gameid, fieldgoalsmade, season FROM \"NAGAAKHIL.BELIDE\".games_details gd\n" +
+                "SELECT playerid, ROUND(AVG(" + type + "), 4) AS pseasonavg, season FROM (\n" +
+                "SELECT playerid, gd.gameid, " + type + ", season FROM \"NAGAAKHIL.BELIDE\".games_details gd\n" +
                 "INNER JOIN \"NAGAAKHIL.BELIDE\".games g ON gd.gameid = g.gameid\n" +
-                "WHERE fieldgoalsmade IS NOT NULL)\n" +
+                "WHERE " + type + " IS NOT NULL)\n" +
                 "GROUP BY playerid, season)\n" +
                 "\n" +
                 "SELECT savg AS points, topavg AS avgOfTop, psavg.season AS season FROM (\n" +
-                "SELECT p1.playerid, name, AVG(gd1.fieldgoalsmade) AS savg, season FROM \"NAGAAKHIL.BELIDE\".players p1\n" +
+                "SELECT p1.playerid, name, AVG(gd1."+type+") AS savg, season FROM \"NAGAAKHIL.BELIDE\".players p1\n" +
                 "INNER JOIN \"NAGAAKHIL.BELIDE\".games_details gd1 ON p1.playerid = gd1.playerid\n" +
                 "INNER JOIN \"NAGAAKHIL.BELIDE\".games g1 ON g1.gameid = gd1.gameid\n" +
-                "WHERE p1.name = ? AND fieldgoalsmade IS NOT NULL\n" +
+                "WHERE p1.name = ? AND " + type + " IS NOT NULL\n" +
                 "GROUP BY season, p1.playerid, name) psavg\n" +
                 "INNER JOIN (\n" +
                 "SELECT AVG(pseasonavg) AS topavg, season FROM\n" +
@@ -110,11 +110,11 @@ public class queryRepository {
     }
 
     public List<PointsAgainst> query4(String name){
-        sql="SELECT season, opponent AS team, avgpoints AS points\n" +
+        sql="SELECT season, opponent AS team, avgpoints AS points, high_rank, low_rank \n" +
                 "FROM(\n" +
                 "    SELECT name, season, opponent, avgpoints,\n" +
-                "    RANK() OVER (PARTITION BY season ORDER BY avgpoints DESC) AS high_rank,\n" +
-                "    RANK() OVER (PARTITION BY season ORDER BY avgpoints ASC) AS low_rank\n" +
+                "    ROW_NUMBER() OVER (PARTITION BY season ORDER BY avgpoints DESC) AS high_rank,\n" +
+                "    ROW_NUMBER() OVER (PARTITION BY season ORDER BY avgpoints ASC) AS low_rank\n" +
                 "    FROM\n" +
                 "        (SELECT p.name, g.season,t.name AS opponent, AVG(total_points) AS avgpoints\n" +
                 "        FROM \"NAGAAKHIL.BELIDE\".Players p\n" +
@@ -163,6 +163,58 @@ public class queryRepository {
                 "ORDER BY 1";
         Object[] params = new Object[] { team1, team2 };
         List<eFGMetric> temp = connection.query(sql, params, new BeanPropertyRowMapper(eFGMetric.class, false));
+        return temp;
+    }
+
+    public List<HeightDiv> query6(){
+        sql="WITH PlayerHeightSets AS (\n" +
+                "  SELECT\n" +
+                "    p.playerID,\n" +
+                "    AVG(height) AS avg_height,\n" +
+                "    NTILE(5) OVER (ORDER BY AVG(height)) AS height_set\n" +
+                "  FROM Players p\n" +
+                "  WHERE height IS NOT NULL\n" +
+                "  GROUP BY p.playerID\n" +
+                "),\n" +
+                "PlayerPerformance AS (\n" +
+                "  SELECT\n" +
+                "    phs.playerID,\n" +
+                "    phs.height_set,\n" +
+                "    g.season,\n" +
+                "    AVG(COALESCE(gd.reb, 0)) AS avg_rebounds,\n" +
+                "    AVG(COALESCE(gd.stl, 0)) AS avg_steals,\n" +
+                "    AVG(COALESCE(gd.blk, 0)) AS avg_blocked_shots,\n" +
+                "    AVG(COALESCE(gd.FGM, 0)) AS avg_field_goals_made,\n" +
+                "    AVG(COALESCE(gd.PTS, 0)) AS avg_total_points\n" +
+                "  FROM PlayerHeightSets phs\n" +
+                "  JOIN Players p ON phs.playerID = p.playerID\n" +
+                "  JOIN game_details gd ON p.playerID = gd.player_ID\n" +
+                "  JOIN games g ON g.gameID = gd.game_ID\n" +
+                "  GROUP BY phs.playerID, phs.height_set, g.season\n" +
+                "),\n" +
+                "HeightSetRanges AS (\n" +
+                "  SELECT\n" +
+                "    height_set,\n" +
+                "    MIN(avg_height) AS min_height,\n" +
+                "    MAX(avg_height) AS max_height\n" +
+                "  FROM PlayerHeightSets\n" +
+                "  GROUP BY height_set\n" +
+                ")\n" +
+                "SELECT\n" +
+                "  pp.height_set,\n" +
+                "  pp.season,\n" +
+                "  ROUND(AVG(pp.avg_rebounds), 5) AS avg_rebounds,\n" +
+                "  ROUND(AVG(pp.avg_steals), 5) AS avg_steals,\n" +
+                "  ROUND(AVG(pp.avg_blocked_shots), 5) AS avg_blocked_shots,\n" +
+                "  ROUND(AVG(pp.avg_field_goals_made), 5) AS avg_field_goals_made,\n" +
+                "  ROUND(AVG(pp.avg_total_points), 5) AS avg_total_points,\n" +
+                "  hr.min_height,\n" +
+                "  hr.max_height\n" +
+                "FROM PlayerPerformance pp\n" +
+                "JOIN HeightSetRanges hr ON pp.height_set = hr.height_set\n" +
+                "GROUP BY pp.height_set, pp.season, hr.min_height, hr.max_height\n" +
+                "ORDER BY pp.season, pp.height_set";
+        List<HeightDiv> temp = connection.query(sql, new BeanPropertyRowMapper(HeightDiv.class, false));
         return temp;
     }
 }

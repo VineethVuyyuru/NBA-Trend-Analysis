@@ -31,8 +31,8 @@ public class queryService {
         return repo.query1(name);
     }
 
-    public List<PerfCompare> query2(String name){
-        return repo.query2(name);
+    public List<PerfCompare> query2(String name, String type){
+        return repo.query2(name, type);
     }
     public List<PlayerPoints> query3(String name){
         return repo.query3(name);
@@ -44,6 +44,10 @@ public class queryService {
 
     public List<eFGMetric> query5(String team1, String team2){
         return repo.query5(team1, team2);
+    }
+
+    public List<HeightDiv> query6(){
+        return repo.query6();
     }
 
 }

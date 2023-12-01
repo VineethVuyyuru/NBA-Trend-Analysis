@@ -28,7 +28,7 @@ const SideBar = () => {
            <a href='/dashboard'><CDBSidebarMenuItem icon="th-large">Dashboard</CDBSidebarMenuItem></a>
            <a href='/query1'><CDBSidebarMenuItem icon="chart-line">Salary vs PPG</CDBSidebarMenuItem></a>
            <a href='/query2'><CDBSidebarMenuItem icon="users">Player vs Top 5</CDBSidebarMenuItem></a>
-           <a href='/'><CDBSidebarMenuItem icon="chart-line">Query 3</CDBSidebarMenuItem></a>
+           <a href='/query6'><CDBSidebarMenuItem icon="chart-line">Query 3</CDBSidebarMenuItem></a>
            <a href='/query4'><CDBSidebarMenuItem icon="user-shield">Query 4</CDBSidebarMenuItem></a>
            <a href='/query5'><CDBSidebarMenuItem icon="chart-bar">Teams eFG</CDBSidebarMenuItem></a>
           </CDBSidebarMenu>
