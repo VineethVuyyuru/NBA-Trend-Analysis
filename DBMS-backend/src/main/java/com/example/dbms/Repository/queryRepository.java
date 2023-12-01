@@ -181,15 +181,15 @@ public class queryRepository {
                 "    phs.playerID,\n" +
                 "    phs.height_set,\n" +
                 "    g.season,\n" +
-                "    AVG(COALESCE(gd.reb, 0)) AS avg_rebounds,\n" +
-                "    AVG(COALESCE(gd.stl, 0)) AS avg_steals,\n" +
-                "    AVG(COALESCE(gd.blk, 0)) AS avg_blocked_shots,\n" +
-                "    AVG(COALESCE(gd.FGM, 0)) AS avg_field_goals_made,\n" +
-                "    AVG(COALESCE(gd.PTS, 0)) AS avg_total_points\n" +
+                "    AVG(COALESCE(gd.rebounds, 0)) AS avg_rebounds,\n" +
+                "    AVG(COALESCE(gd.steals, 0)) AS avg_steals,\n" +
+                "    AVG(COALESCE(gd.blocked_shots, 0)) AS avg_blocked_shots,\n" +
+                "    AVG(COALESCE(gd.FieldGoalsMade, 0)) AS avg_field_goals_made,\n" +
+                "    AVG(COALESCE(gd.total_points, 0)) AS avg_total_points\n" +
                 "  FROM \"NAGAAKHIL.BELIDE\".PlayerHeightSets phs\n" +
                 "  JOIN \"NAGAAKHIL.BELIDE\".Players p ON phs.playerID = p.playerID\n" +
-                "  JOIN \"NAGAAKHIL.BELIDE\".game_details gd ON p.playerID = gd.player_ID\n" +
-                "  JOIN \"NAGAAKHIL.BELIDE\".games g ON g.gameID = gd.game_ID\n" +
+                "  JOIN \"NAGAAKHIL.BELIDE\".games_details gd ON p.playerID = gd.playerID\n" +
+                "  JOIN \"NAGAAKHIL.BELIDE\".games g ON g.gameID = gd.gameID\n" +
                 "  GROUP BY phs.playerID, phs.height_set, g.season\n" +
                 "),\n" +
                 "HeightSetRanges AS (\n" +
