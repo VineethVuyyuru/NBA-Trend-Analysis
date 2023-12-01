@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './Home.css';
 import { TypeAnimation } from 'react-type-animation';
 import logo1 from '../../src/NBA-Analytics-1.png';
+import Fade from 'react-reveal/Fade';
 
 export default function HomePage(){
     return (
@@ -29,7 +30,7 @@ export default function HomePage(){
                         padding: "16px",
                         backgroundColor: '#5a0823',
                         borderRadius: '16px',
-                        bottom: '18%',
+                        bottom: '10%',
                         left: '43%',
                         width: '200px', textAlign: 'center',
                         boxshadow: '0 4px 8px rgba(0, 0, 0, 1)'}}>
@@ -38,6 +39,7 @@ export default function HomePage(){
             </div>
             <div>
                 <Container fluid className='text-white text-center' style={{backgroundColor: "#000620"}}>
+                <Fade bottom>
                     <Row className='py-10'>
                         <Col className='col-lg-5  d-flex justify-content-center align-items-center '>
                         <img
@@ -50,6 +52,7 @@ export default function HomePage(){
                             <br></br>
                             <div><h1 >Our Aim</h1></div>
                             <br></br>
+                            
                             <div className='d-flex justify-content-center align-items-center '>
                                 <div className="about">
                                 Sports analysis provides valuable insights into the dynamics of a sport 
@@ -69,10 +72,10 @@ export default function HomePage(){
                                 with NBA data.
                                 </div>  
                             </div>
-                            <br></br>
-                            <br></br>  
+                            
                         </Col>
                     </Row>
+                    </Fade>
                 </Container>       
             </div>
         </div>

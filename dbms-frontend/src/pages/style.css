@@ -4,6 +4,7 @@
   padding: 0;
   background-image: url('../image1.jpg');
   background-size: cover;
+  
 }
 .title{
   /* font-family: Georgia, 'Times New Roman', Times, serif; */
@@ -27,7 +28,7 @@
 }
 .description{
    /* font: sans-serif; */
-   color: white;
+  color: white;
   font-family: Verdana, sans-serif;
 }
 label {

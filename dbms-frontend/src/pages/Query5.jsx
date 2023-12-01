@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Query5Graph from './Query5Graph';
-import NavBar from './NavBar'
 import { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import { Container, Row, Col } from 'react-bootstrap';
 import SideBar from './SideBar';
 import './style.css';
+import Zoom from 'react-reveal/Zoom';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -45,7 +45,6 @@ function Query5(){
 
     const handleResultClick = async () => {
         try {
-            // Example: Assuming there's an API endpoint for player details
             const playerDetailsApiUrl = `http://localhost:8080/query5/${selectedResult1}/${selectedResult2}`;
             const response = await fetch(playerDetailsApiUrl);
             const resData = await response.json();
@@ -217,7 +216,7 @@ function Query5(){
                         
                             <button
                                 type="button"
-                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                className="inline-flex items-center px-2 py-2 text-sm font-medium rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 style={{backgroundColor: '#5a0823'}}
                                 onClick={() => handleResultClick()}
                             >
@@ -234,9 +233,11 @@ function Query5(){
                                 </div>
                             )} 
                             {graphData && graphData.length>0 && (
-                                <Query5Graph 
-                                data = {graphData}
-                                />
+                                <Zoom>
+                                    <Query5Graph 
+                                    data = {graphData}
+                                    />
+                                </Zoom>
                             )}
                             <br></br>
                             <br></br>

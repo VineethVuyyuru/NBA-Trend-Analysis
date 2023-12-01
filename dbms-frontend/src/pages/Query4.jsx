@@ -3,6 +3,7 @@ import Query4Graph from './Query4Graph';
 import { Container, Row, Col } from 'react-bootstrap';
 import './style.css';
 import SideBar from './SideBar';
+import Zoom from 'react-reveal/Zoom';
 
 
 function Query4(){
@@ -110,9 +111,11 @@ function Query4(){
                                     </div>
                                 )} 
                                 {playerDetails && playerDetails.length>0 && (
-                                    <Query4Graph 
-                                    data = {playerDetails}
-                                    />
+                                    <Zoom>
+                                        <Query4Graph 
+                                        data = {playerDetails}
+                                        />
+                                    </Zoom>
                                 )}
                                 <br></br>
                                 <br></br>

@@ -92,7 +92,8 @@ function Query6(){
                             <div className='d-flex justify-content-center align-items-center'>
                                 <div>
                                     <label htmlFor="selectOption">Select an Option &nbsp;</label>
-                                    <select id="selectOption" value={selectedOption} onChange={handleDropdownChange}>
+                                    <select id="selectOption" value={selectedOption} onChange={handleDropdownChange}
+                                    style={{borderRadius: '5px', textAlign: 'center', borderColor: 'black'}}>
                                         <option value="">Select an option</option>
                                         <option value="avg_rebounds">Rebounds</option>
                                         <option value="avg_steals">Steals</option>

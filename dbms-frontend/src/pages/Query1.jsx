@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Query1Graph from './Query1Graph';
 import { Container, Row, Col } from 'react-bootstrap';
-import NavBar from './NavBar'
-import Header from './Header';
+import Zoom from 'react-reveal/Zoom';
 import './style.css';
 import SideBar from './SideBar';
 
@@ -112,9 +111,11 @@ function Query1(){
                                     </div>
                                 )} 
                                 {playerDetails && playerDetails.length>0 && (
-                                    <Query1Graph 
-                                    data = {playerDetails}
-                                    />
+                                    <Zoom>
+                                        <Query1Graph 
+                                        data = {playerDetails}
+                                        />
+                                    </Zoom>
                                 )}
                                 <br></br>
                                 <br></br>

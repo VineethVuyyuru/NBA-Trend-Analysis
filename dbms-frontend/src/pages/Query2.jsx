@@ -3,6 +3,7 @@ import Query2Graph from './Query2Graph';
 import { Container, Row, Col } from 'react-bootstrap';
 import './style.css';
 import SideBar from './SideBar';
+import Zoom from 'react-reveal/Zoom';
 
 
 function Query2(){
@@ -83,8 +84,9 @@ function Query2(){
 
                             <div className='d-flex justify-content-center align-items-center'>
                                 <div>
-                                    <label htmlFor="selectOption">Select an Option &nbsp;</label>
-                                    <select id="selectOption" value={selectedOption} onChange={handleDropdownChange}>
+                                    <label htmlFor="selectOption" >Select an Option &nbsp;</label>
+                                    <select id="selectOption" value={selectedOption} onChange={handleDropdownChange} 
+                                    style={{borderRadius: '5px', textAlign: 'center', borderColor: 'black'}}>
                                         <option value="">Select an option</option>
                                         <option value="fieldgoalsmade">Field Goals Made</option>
                                         <option value="freethrowsmade">Free Throws Made</option>
@@ -129,9 +131,11 @@ function Query2(){
                                     </div>
                                 )} 
                                 {playerDetails && playerDetails.length>0 && (
-                                    <Query2Graph 
-                                    data = {playerDetails}
-                                    />
+                                    <Zoom>
+                                        <Query2Graph 
+                                        data = {playerDetails}
+                                        />
+                                    </Zoom>
                                 )}
                                 <br></br>
                                 <br></br>
