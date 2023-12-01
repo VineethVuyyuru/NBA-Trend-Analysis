@@ -172,7 +172,7 @@ public class queryRepository {
                 "    p.playerID,\n" +
                 "    AVG(height) AS avg_height,\n" +
                 "    NTILE(5) OVER (ORDER BY AVG(height)) AS height_set\n" +
-                "  FROM Players p\n" +
+                "  FROM \"NAGAAKHIL.BELIDE\".Players p\n" +
                 "  WHERE height IS NOT NULL\n" +
                 "  GROUP BY p.playerID\n" +
                 "),\n" +
@@ -186,10 +186,10 @@ public class queryRepository {
                 "    AVG(COALESCE(gd.blk, 0)) AS avg_blocked_shots,\n" +
                 "    AVG(COALESCE(gd.FGM, 0)) AS avg_field_goals_made,\n" +
                 "    AVG(COALESCE(gd.PTS, 0)) AS avg_total_points\n" +
-                "  FROM PlayerHeightSets phs\n" +
-                "  JOIN Players p ON phs.playerID = p.playerID\n" +
-                "  JOIN game_details gd ON p.playerID = gd.player_ID\n" +
-                "  JOIN games g ON g.gameID = gd.game_ID\n" +
+                "  FROM \"NAGAAKHIL.BELIDE\".PlayerHeightSets phs\n" +
+                "  JOIN \"NAGAAKHIL.BELIDE\".Players p ON phs.playerID = p.playerID\n" +
+                "  JOIN \"NAGAAKHIL.BELIDE\".game_details gd ON p.playerID = gd.player_ID\n" +
+                "  JOIN \"NAGAAKHIL.BELIDE\".games g ON g.gameID = gd.game_ID\n" +
                 "  GROUP BY phs.playerID, phs.height_set, g.season\n" +
                 "),\n" +
                 "HeightSetRanges AS (\n" +
