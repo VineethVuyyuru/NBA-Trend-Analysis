@@ -121,7 +121,7 @@ public class queryRepository {
                 "        INNER JOIN \"NAGAAKHIL.BELIDE\".games_details gd ON gd.playerID=p.playerID\n" +
                 "        INNER JOIN \"NAGAAKHIL.BELIDE\".Games g ON g.gameID=gd.gameID\n" +
                 "        INNER JOIN \"NAGAAKHIL.BELIDE\".Teams t ON t.teamID=g.awayteamID\n" +
-                "        WHERE p.name = ? AND gd.teamID<>g.awayteamID\n" +
+                "        WHERE p.name = ? AND gd.teamID<>g.awayteamID AND total_points IS NOT NULL\n" +
                 "        GROUP BY p.name, g.season, t.name)\n" +
                 "    )\n" +
                 "WHERE high_rank=1 or low_rank=1";
@@ -197,7 +197,7 @@ public class queryRepository {
                 "    height_set,\n" +
                 "    MIN(avg_height) AS min_height,\n" +
                 "    MAX(avg_height) AS max_height\n" +
-                "  FROM PlayerHeightSets\n" +
+                "  FROM \"NAGAAKHIL.BELIDE\".PlayerHeightSets\n" +
                 "  GROUP BY height_set\n" +
                 ")\n" +
                 "SELECT\n" +
@@ -210,8 +210,8 @@ public class queryRepository {
                 "  ROUND(AVG(pp.avg_total_points), 5) AS avg_total_points,\n" +
                 "  hr.min_height,\n" +
                 "  hr.max_height\n" +
-                "FROM PlayerPerformance pp\n" +
-                "JOIN HeightSetRanges hr ON pp.height_set = hr.height_set\n" +
+                "FROM \"NAGAAKHIL.BELIDE\".PlayerPerformance pp\n" +
+                "JOIN \"NAGAAKHIL.BELIDE\".HeightSetRanges hr ON pp.height_set = hr.height_set\n" +
                 "GROUP BY pp.height_set, pp.season, hr.min_height, hr.max_height\n" +
                 "ORDER BY pp.season, pp.height_set";
         List<HeightDiv> temp = connection.query(sql, new BeanPropertyRowMapper(HeightDiv.class, false));
