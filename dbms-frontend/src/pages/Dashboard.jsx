@@ -74,8 +74,8 @@ function Dashboard(){
                                 <div>
                                     <div class="p-3 rounded-lg shadow-md" 
                                         style={{backgroundColor: '#111827', boxShadow: '0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5)'}}>
-                                        <div className="font-sans text-xl text-semibold text-white">Query 1</div>
-                                        <p class="mb-3 font-sans text-sm p-2 text-white">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                        <div className="font-sans text-xl text-semibold text-white">Salary vs PPG</div>
+                                        <p class="mb-3 font-sans text-sm p-2 text-white">Player salary comparision with his PPG average.</p>
                                         <a href="/query1" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-indigo-300"
                                         style={{backgroundColor: '#5a0823', textDecoration:'none'}}>
                                             Visualize
@@ -91,8 +91,8 @@ function Dashboard(){
                                 <div>
                                     <div class="p-3 rounded-lg shadow-md"
                                         style={{backgroundColor: '#111827', boxShadow: '0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5)'}}>
-                                        <div className="font-sans text-xl text-semibold text-white">Query 2</div>
-                                        <p class="mb-3 font-sans text-sm p-2 text-white">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                        <div className="font-sans text-xl text-semibold text-white">Player vs Top 5</div>
+                                        <p class="mb-3 font-sans text-sm p-2 text-white">Player comparision against top 5 players.</p>
                                         <a href="/query2" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-indigo-300"
                                         style={{backgroundColor: '#5a0823', textDecoration:'none'}}>
                                             Visualize
@@ -108,8 +108,8 @@ function Dashboard(){
                                 <div>
                                     <div class="p-3 rounded-lg shadow-md "
                                         style={{backgroundColor: '#111827', boxShadow: '0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5)'}}>
-                                        <div className="font-sans text-xl text-semibold text-white">Query 3</div>
-                                        <p class="mb-3 font-sans text-sm p-2 text-white">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                        <div className="font-sans text-xl text-semibold text-white">Height based performance</div>
+                                        <p class="mb-3 font-sans text-sm p-2 text-white">Metric comparision between different ranges of heights.</p>
                                         <a href="/query6" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-indigo-300"
                                         style={{backgroundColor: '#5a0823', textDecoration:'none'}}>
                                             Visualize
@@ -125,8 +125,8 @@ function Dashboard(){
                             <div>
                                 <div class="p-3 rounded-lg shadow-md "
                                 style={{backgroundColor: '#111827', boxShadow: '0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5)'}}>
-                                    <div className="font-sans text-xl text-semibold text-white">Query 4</div>
-                                    <p class="mb-3 font-sans text-sm p-2 text-white">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                    <div className="font-sans text-xl text-semibold text-white">Players Best vs Worst</div>
+                                    <p class="mb-3 font-sans text-sm p-2 text-white">See a players best and worst matchups.</p>
                                     <a href="/query4" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-indigo-300"
                                     style={{backgroundColor: '#5a0823', textDecoration:'none'}}>
                                         Visualize
@@ -142,8 +142,8 @@ function Dashboard(){
                                 <div>
                                     <div class="p-3 rounded-lg shadow-md "
                                     style={{backgroundColor: '#111827', boxShadow: '0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5)'}}>
-                                        <div className="font-sans text-xl text-semibold text-white">Query 5</div>
-                                        <p class="mb-3 font-sans text-sm p-2 text-white">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                        <div className="font-sans text-xl text-semibold text-white">Team vs Team eFG</div>
+                                        <p class="mb-3 font-sans text-sm p-2 text-white">Compare two teams effective field goal percentage.</p>
                                         <a href="/query5" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-indigo-300"
                                         style={{backgroundColor: '#5a0823', textDecoration:'none'}}>
                                             Visualize

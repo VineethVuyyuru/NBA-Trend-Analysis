@@ -79,11 +79,11 @@ function Query6(){
                
                     <div>                      
                         <div>
-                            <p className="title">Metrics based on Height</p>
+                            <p className="title">Height based performances</p>
                             <div className='ml-6'>
                                 <p className="description-title">Description:</p>
                                 <p className="description">
-                                This Player Points Breakdown Over Seasons trend query allows users to track and analyze the different types of points scored by an NBA player, including Free Throws, Field Goals, and Three-Point Throws, across the various seasons they've played. This query offers insights into how a player's scoring strategies and preferences have evolved over time.
+                                See how players in different height ranges perform based on selected metric. The average of the total score is displayed. This is particularly useful in devising player positions and strategies based on a teams roster.
                                 </p>
                             </div>
                         </div>
@@ -92,10 +92,10 @@ function Query6(){
 
                             <div className='d-flex justify-content-center align-items-center'>
                                 <div>
-                                    <label htmlFor="selectOption">Select an Option &nbsp;</label>
+                                    <label htmlFor="selectOption">Choose metric &nbsp;</label>
                                     <select id="selectOption" value={selectedOption} onChange={handleDropdownChange}
                                     style={{borderRadius: '5px', textAlign: 'center', borderColor: 'black'}}>
-                                        <option value="">Select an option</option>
+                                        <option value="">Metrics</option>
                                         <option value="avg_rebounds">Rebounds</option>
                                         <option value="avg_steals">Steals</option>
                                         <option value="avg_blocked_shots">Blocked Shots</option>

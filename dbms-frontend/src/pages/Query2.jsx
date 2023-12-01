@@ -75,7 +75,7 @@ function Query2(){
                             <div className='ml-6'>
                                 <p className="description-title">Description:</p>
                                 <p className="description">
-                                This Player Points Breakdown Over Seasons trend query allows users to track and analyze the different types of points scored by an NBA player, including Free Throws, Field Goals, and Three-Point Throws, across the various seasons they've played. This query offers insights into how a player's scoring strategies and preferences have evolved over time.
+                                See where a player stands compared to the top 5 players in each season based on a metric of your liking. This data provides insight into a players performance with the top 5 and can also show the growth of his performance over the seasons.
                                 </p>
                             </div>
                         </div>
@@ -84,10 +84,10 @@ function Query2(){
 
                             <div className='d-flex justify-content-center align-items-center'>
                                 <div>
-                                    <label htmlFor="selectOption" >Select an Option &nbsp;</label>
+                                    <label htmlFor="selectOption" >Choose metric &nbsp;</label>
                                     <select id="selectOption" value={selectedOption} onChange={handleDropdownChange} 
                                     style={{borderRadius: '5px', textAlign: 'center', borderColor: 'black'}}>
-                                        <option value="">Select an option</option>
+                                        <option value="">Metric</option>
                                         <option value="fieldgoalsmade">Field Goals Made</option>
                                         <option value="freethrowsmade">Free Throws Made</option>
                                         <option value="threepointsthrowsmade">Three-Point Throws Made</option>

@@ -89,7 +89,7 @@ function Query5(){
                             <div className='ml-6'>
                                 <p className="description-title">Description:</p>
                                 <p className="description">
-                                This Player Points Breakdown Over Seasons trend query allows users to track and analyze the different types of points scored by an NBA player, including Free Throws, Field Goals, and Three-Point Throws, across the various seasons they've played. This query offers insights into how a player's scoring strategies and preferences have evolved over time.
+                                Compare effective field goal (eFG) percentages between teams. The eFG is a statistic that gives lower weightage to three point shots as they give a higher score than all other field goals. It is an invaluable tool to evaluate a teams shooting ability and their offensive efficiency. Teams with high eFG% correlate with higher win-loss ratios as they tend to convert their goal attempts into scores more. Coaches can plan strategies according to their teams eFG.  
                                 </p>
                             </div>
                         </div>

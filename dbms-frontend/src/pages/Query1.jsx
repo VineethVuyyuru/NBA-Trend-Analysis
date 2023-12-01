@@ -70,7 +70,7 @@ function Query1(){
                             <div className='ml-6'>
                                 <p className="description-title">Description:</p>
                                 <p className="description">
-                                This Player Points Breakdown Over Seasons trend query allows users to track and analyze the different types of points scored by an NBA player, including Free Throws, Field Goals, and Three-Point Throws, across the various seasons they've played. This query offers insights into how a player's scoring strategies and preferences have evolved over time.
+                                See how a players salary varies based on the average PPG over the seasons. PPG stands for points scored per each game. This data is useful in determining a players financial worth.
                                 </p>
                             </div>
                         </div>
