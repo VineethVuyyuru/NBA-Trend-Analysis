@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import  "chart.js/auto";
+import   "chart.js/auto";
 import { Chart } from "react-chartjs-2";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 
 const Query4Graph = ({data}) => {
@@ -59,15 +60,6 @@ const Query4Graph = ({data}) => {
   };
 
     const options = {
-      plugins: {
-        tooltips: {
-            callbacks: {
-                label: function() {
-                    return 'Hello, World!';
-                }
-            }
-        }
-    },
         maintainAspectRatio: false,
         scales: {
           y: {
@@ -94,14 +86,35 @@ const Query4Graph = ({data}) => {
                 }
             }
         }
-      }
+      },
+      plugins: {
+        datalabels: {
+          display:true,
+          color:'black',
+          offset:-20,
+          anchor: 'end',
+         
+          align: 'start',
+          formatter:  function(value, context) {
+            const datasetIndex = context.datasetIndex;
+            const dataIndex = context.dataIndex;
+  
+            // Use datasetIndex and dataIndex to get corresponding team values
+            if (datasetIndex === 0) {
+              return team_high[dataIndex];
+            } else {
+              return team_low[dataIndex];
+            }
+          },
+        },
+      },
        
     };
 
     return (
         <div style={{ height: '73vh', width: '73vw', border : '1px solid', 
         padding: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', backgroundColor: 'white'}}>
-          <Chart type = "line" data = {data1} options={options}/>
+          <Chart type = "bar" data = {data1} plugins={[ChartDataLabels]} options={options}/>
         </div>
       
     )
@@ -109,3 +122,8 @@ const Query4Graph = ({data}) => {
 };
 
 export default Query4Graph
+
+
+
+
+
