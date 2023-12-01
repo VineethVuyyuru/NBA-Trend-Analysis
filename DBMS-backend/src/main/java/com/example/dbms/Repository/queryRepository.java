@@ -65,7 +65,8 @@ public class queryRepository {
                 "    INNER JOIN \"NAGAAKHIL.BELIDE\".Games g ON g.gameID=gd.gameID\n" +
                 "    WHERE p.name = ? \n" +
                 "    GROUP BY season, p.name) B\n" +
-                "ON A.name=B.name AND A.year=B.season";
+                "ON A.name=B.name AND A.year=B.season\n" +
+                "ORDER BY year";
         Object[] params = new Object[] { name, name };
         return connection.query(sql, params, new BeanPropertyRowMapper(PlayerSal.class, false));
     }

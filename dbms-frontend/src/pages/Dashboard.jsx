@@ -74,8 +74,8 @@ function Dashboard(){
                                 <div>
                                     <div class="p-3 rounded-lg shadow-md" 
                                         style={{backgroundColor: '#111827', boxShadow: '0px 2px 8px 0px rgba(224, 75, 82, 0.5), 0px 4px 16px 0px rgba(224, 75, 82, 0.5)'}}>
-                                        <div className="font-sans text-xl text-semibold text-white">Salary vs PPG</div>
-                                        <p class="mb-3 font-sans text-sm p-2 text-white">Player salary comparision with his PPG average.</p>
+                                        <div className="font-sans text-xl text-semibold text-white">Salary vs Total Points</div>
+                                        <p class="mb-3 font-sans text-sm p-2 text-white">Player salary comparision with his total points in each season.</p>
                                         <a href="/query1" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-indigo-300"
                                         style={{backgroundColor: '#5a0823', textDecoration:'none'}}>
                                             Visualize

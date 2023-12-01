@@ -33,25 +33,17 @@ const Query4Graph = ({data}) => {
 
 }, []); 
 
-  // data.forEach(function (data) {
-  //     arrlabels.push(data.season);
-  //     points.push(data.points);
-  //     team.push(data.avgOfTop);
-  // });
-
-
-  
-  const data1 = {
+const data1 = {
       labels: arrlabels,
       datasets: [
         {
-          label: "Selected Player Avg Points per Game",
+          label: "Best Scored Against",
           backgroundColor: "#FFCA48",
           borderColor: "#FFCA48",
           data: points_high,
         },
         {
-          label: "Avg points per game of Top 5 players of the season",
+          label: "Worst Scored Against",
           backgroundColor: "rgb(231, 76, 60)",
           borderColor: "rgb(231, 76, 60)",
           data: points_low,

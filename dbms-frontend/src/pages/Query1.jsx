@@ -66,11 +66,11 @@ function Query1(){
                     <div>
                         
                         <div>
-                            <p className="title">Salary vs PPG</p>
+                            <p className="title">Salary vs Total Points</p>
                             <div className='ml-6'>
                                 <p className="description-title">Description:</p>
                                 <p className="description">
-                                See how a players salary varies based on the average PPG over the seasons. PPG stands for points scored per each game. This data is useful in determining a players financial worth.
+                                See how a players salary varies based on total points scored in a season. This data is useful in determining a players financial worth.
                                 </p>
                             </div>
                         </div>
