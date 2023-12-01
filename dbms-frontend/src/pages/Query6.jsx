@@ -3,6 +3,7 @@ import Query6Graph from './Query6Graph';
 import { Container, Row, Col } from 'react-bootstrap';
 import './style.css';
 import SideBar from './SideBar';
+import Zoom from 'react-reveal/Zoom';
 
 
 function Query6(){
@@ -112,9 +113,11 @@ function Query6(){
                             <div  className="selected-player">
                                
                                 {playerDetails && playerDetails.length>0 && (
+                                    <Zoom>
                                     <Query6Graph 
                                     data = {playerDetails} col = {selectedOption}
                                     />
+                                    </Zoom>
                                 )}
                                 <br></br>
                                 <br></br>
