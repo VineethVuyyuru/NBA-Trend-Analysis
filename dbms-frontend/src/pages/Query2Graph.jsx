@@ -21,13 +21,13 @@ const Query2Graph = ({data}) => {
       labels: arrlabels,
       datasets: [
         {
-          label: "Selected Player Avg Points per Game",
+          label: "AVG Successful throws made by selected player",
           backgroundColor: "#FFCA48",
           borderColor: "#FFCA48",
           data: points,
         },
         {
-          label: "Avg points per game of Top 5 players of the season",
+          label: "AVG Successful throws made by Top 5 players of the season",
           backgroundColor: "rgb(231, 76, 60)",
           borderColor: "rgb(231, 76, 60)",
           data: avgOfTop,
@@ -41,7 +41,7 @@ const Query2Graph = ({data}) => {
           y: {
               title: {
                   display: true,
-                  text : 'Points Scored',
+                  text : 'Average Successful Throws',
                   color: 'black',
                   font: {
                     family: "sans-serif",

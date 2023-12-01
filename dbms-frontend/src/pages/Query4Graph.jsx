@@ -11,11 +11,9 @@ const Query4Graph = ({data}) => {
   var team_high = [];
   var points_low = [];
   var team_low = [];
-  console.log(data)
 
-  useEffect(() => {
-    const higherRank = data.filter(entry => entry.high_rank === 1);
-    const lowerRank = data.filter(entry => entry.low_rank === 1);
+const higherRank = data.filter(entry => entry.high_rank === 1);
+const lowerRank = data.filter(entry => entry.low_rank === 1);
 
     higherRank.forEach(function (data) {
       arrlabels.push(data.season);
@@ -29,9 +27,6 @@ const Query4Graph = ({data}) => {
     team_low.push(data.team);
 });
 
-  console.log(lowerRank)
-
-}, []); 
 
 const data1 = {
       labels: arrlabels,
